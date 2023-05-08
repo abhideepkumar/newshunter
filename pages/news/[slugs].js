@@ -6,7 +6,7 @@ const News = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
   const { slugs } = router.query;
-  const url = `https://newsapi.org/v2/everything?apiKey=70d953a5a90d4092b11bd270b65c7b69&sortBy=relevancy&q=${slugs}`;
+  const url = `https://newsapi.org/v2/everything?apiKey=70d953a5a90d4092b11bd270b65c7b69&sortBy=relevancy&language=en&q=${slugs}`;
 
   useEffect(() => {
     const getNews = async () => {
@@ -25,19 +25,19 @@ const News = () => {
   }, [slugs]);
 
   return (
-    <main className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+    <main className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 text-white">
       {data.map((article) => (
         <a key={article.url} href={article.url}>
-          <div className="bg-yellow-600 rounded-3xl px-10 py-3">
+          <div className="bg-teal-600 rounded-3xl px-10 py-3">
             <div className="">
-              <h3 className="bg-yellow-950 px-5 rounded-lg">
+              <h3 className="bg-teal-950 px-5 rounded-lg">
                 Author: {article.author || "Unknown"}
               </h3>
               <h3 className=" px-5 rounded-lg">
                 Website: {article.source.name || "Unknown"}
               </h3>
             </div>
-            <h1 className="block font-bold text-xl py-3 bg-yellow-900 rounded-2xl text-center p-1 ">
+            <h1 className="block font-bold text-xl py-3 bg-teal-900 rounded-2xl text-center p-1 ">
               {article.title || "No Title Available"}
             </h1>
             <img

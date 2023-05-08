@@ -11,8 +11,8 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center">
-      <h1 className="text-yellow-400 text-8xl py-16 font-serif">News Hunter</h1>
-      <h2 className="text-yellow-600 text-2xl font-serif">Access News now</h2>
+      <h1 className="text-green-800 text-8xl py-16 font-serif">News Hunter</h1>
+      <h2 className="text-green-600 text-2xl font-serif">Access News now</h2>
 
       {/* Search bar */}
       <div className="px-10 py-20">
@@ -41,12 +41,12 @@ export default function Home() {
               <div className="flex rounded-md overflow-hidden w-full">
                 <input
                   type="text"
-                  className="w-full rounded-md rounded-r-none text-black px-16"
+                  className="w-full rounded-md rounded-r-none px-16 bg-teal-100"
                   value={keyword}
                   onChange={handleChange}
                 />
                 <button
-                  className="bg-indigo-600  px-6 text-lg font-semibold py-4 rounded-r-md"
+                  className="bg-teal-600  px-6 text-lg font-semibold py-4 rounded-r-md"
                   onClick={() => {
                     router.push(`/news/${keyword}`);
                   }}
