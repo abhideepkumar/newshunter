@@ -44,7 +44,7 @@ const News = () => {
               className="aspect-video py-2 rounded-2xl"
               src={
                 article.urlToImage ||
-                "https://as1.ftcdn.net/v2/jpg/05/98/73/74/1000_F_598737413_7RYI81knmdEAnaASorX9DF94KiAbS7qG.jpg"
+                "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               }
               alt="Thumbnail"
             ></img>
