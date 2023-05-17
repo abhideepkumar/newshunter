@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
 
 const News = () => {
@@ -11,9 +10,14 @@ const News = () => {
   useEffect(() => {
     const getNews = async () => {
       try {
-        const response = await axios.get(url);
-        console.log("data", response.data);
-        setData(response.data.articles);
+        const response = await fetch(url);
+        if (response.ok) {
+          const data = await response.json();
+          console.log("data", data);
+          setData(data.articles);
+        } else {
+          throw new Error("Request failed with status " + response.status);
+        }
       } catch (err) {
         console.log(err);
       }
