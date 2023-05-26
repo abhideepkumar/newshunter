@@ -6,25 +6,24 @@ const News = () => {
   const [loading, setLoading] = useState("mt-10 text-center hidden");
   const router = useRouter();
   const { slugs } = router.query;
-  const url = `https://newsapi.org/v2/everything?apiKey=70d953a5a90d4092b11bd270b65c7b69&sortBy=relevancy&language=en&q=${slugs}`;
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const url = `/api/proxy?q=${encodeURIComponent(slugs)}`;
 
   useEffect(() => {
     const getNews = async () => {
       try {
-        const response = await fetch(proxyUrl + url);
+        const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
           console.log("data", data);
           setData(data.articles);
         } else {
-          throw new Error("Request failed with status " + response.status);
+          throw new Error("Request failed with status " + response.status); 
         }
       } catch (err) {
         setLoading("mt-10 text-center visible")
         console.log(err);
       }
-    };
+    };  
 
     if (slugs) {
       getNews();
@@ -33,8 +32,8 @@ const News = () => {
 
   return (
     <main>
-      <h1 className={loading}>News not available for given Keyword</h1>
-      <h2 className={loading}>Come back after</h2>
+      <h1 className={loading}>News not available for the given Keyword</h1>
+      <h2 className={loading}>Please try again later.</h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 text-white ">
         {data.map((article) => (
           <a key={article.url} href={article.url}>
