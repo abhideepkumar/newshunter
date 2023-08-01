@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-const url="https://newsapi.org/v2/top-headlines?apiKey=70d953a5a90d4092b11bd270b65c7b69&sortBy=popularity&category=general";
 const Navbar = () => {
   
   return (

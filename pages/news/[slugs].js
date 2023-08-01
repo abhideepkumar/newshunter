@@ -17,13 +17,13 @@ const News = () => {
           console.log("data", data);
           setData(data.articles);
         } else {
-          throw new Error("Request failed with status " + response.status); 
+          throw new Error("Request failed with status " + response.status);
         }
       } catch (err) {
-        setLoading("mt-10 text-center visible")
+        setLoading("mt-10 text-center visible");
         console.log(err);
       }
-    };  
+    };
 
     if (slugs) {
       getNews();
@@ -39,18 +39,18 @@ const News = () => {
           <a key={article.url} href={article.url}>
             <div className="bg-teal-600 rounded-3xl px-10 py-3">
               <div className="">
-                <h3 className="bg-teal-950 px-5 rounded-lg">
+                <h3 className="bg-teal-950 px-5 rounded-lg truncate">
                   Author: {article.author || "Unknown"}
                 </h3>
-                <h3 className=" px-5 rounded-lg">
+                <h3 className=" px-5 rounded-lg truncate">
                   Website: {article.source.name || "Unknown"}
                 </h3>
               </div>
-              <h1 className="block font-bold text-xl py-3 bg-teal-900 rounded-2xl text-center p-1 ">
+              <h1 className=" font-bold text-xl py-1 bg-teal-900 rounded-2xl text-center  line-clamp-2">
                 {article.title || "No Title Available"}
               </h1>
               <img
-                className="aspect-video py-2 rounded-2xl"
+                className="aspect-video py-1 rounded-2xl"
                 src={
                   article.urlToImage ||
                   "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
